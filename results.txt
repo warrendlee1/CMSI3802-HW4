@@ -1,0 +1,604 @@
+
+> pl2@1.0.0 test
+> c8 node_modules/.bin/mocha
+
+
+
+  When matching canadianPostalCode
+    ✔ accepts A7X 2P8
+    ✔ accepts P8E 4R2
+    ✔ accepts K1V 9P2
+    ✔ accepts Y3J 5C0
+    ✔ rejects A7X   9B2
+    ✔ rejects C7E9U2
+    ✔ rejects 
+    ✔ rejects Dog
+    ✔ rejects K1V	9P2
+    ✔ rejects  A7X 2P8
+    ✔ rejects A7X 2P8 
+
+  When matching visa
+    ✔ accepts 4128976567772613
+    ✔ accepts 4089655522138888
+    ✔ accepts 4098562516243
+    ✔ rejects 43333
+    ✔ rejects 42346238746283746823
+    ✔ rejects 7687777777263211
+    ✔ rejects foo
+    ✔ rejects π
+    ✔ rejects 4128976567772613 
+
+  When matching masterCard
+    ✔ accepts 5100000000000000
+    ✔ accepts 5294837679998888
+    ✔ accepts 5309888182838282
+    ✔ accepts 5599999999999999
+    ✔ accepts 2221000000000000
+    ✔ accepts 2720999999999999
+    ✔ accepts 2578930481258783
+    ✔ accepts 2230000000000000
+    ✔ rejects 5763777373890002
+    ✔ rejects 513988843211541
+    ✔ rejects 51398884321108541
+    ✔ rejects 
+    ✔ rejects OH
+    ✔ rejects 5432333xxxxxxxxx
+
+  When matching adaFloat
+    ✔ accepts 1
+    1) accepts 23_5
+    ✔ accepts 4#20#
+    ✔ accepts 13#fD34_2_1#
+    2) accepts 1.3e2
+    3) accepts 11_3.3_3_222E-199
+    4) accepts 3#1.2#E33
+    ✔ accepts 4e+33
+    ✔ rejects dog
+    ✔ rejects 4fe
+    ✔ rejects p#ii#
+    ✔ rejects _
+    ✔ rejects _33
+    ✔ rejects 3_
+    ✔ rejects 5__2
+    ✔ rejects 9#88#E-1e3
+    ✔ rejects -6
+
+  When matching notThreeEndingInOO
+    5) accepts 
+    ✔ accepts fog
+    ✔ accepts Tho
+    ✔ accepts one
+    ✔ accepts a
+    ✔ accepts ab
+    ✔ accepts food
+    ✔ accepts ЂҋЍ
+    ✔ rejects fOo
+    ✔ rejects gOO
+    ✔ rejects HoO
+    ✔ rejects Фoo
+    ✔ rejects πOO
+    ✔ rejects 1π3
+    ✔ rejects A15
+    ✔ rejects лOo
+
+  When matching divisibleBy32
+    ✔ accepts 0
+    ✔ accepts 00
+    ✔ accepts 000
+    ✔ accepts 00000
+    ✔ accepts 00000
+    ✔ accepts 000000
+    ✔ accepts 00000000
+    ✔ accepts 110100000
+    ✔ accepts 10010101000000
+    ✔ rejects 1
+    ✔ rejects 0000000010000
+    ✔ rejects 1000000001
+    ✔ rejects dog0000000
+    ✔ rejects 200000
+
+  When matching sevenThroughThirtyOne
+    ✔ accepts 7
+    ✔ accepts 8
+    ✔ accepts 9
+    ✔ accepts 10
+    ✔ accepts 11
+    ✔ accepts 12
+    ✔ accepts 13
+    ✔ accepts 14
+    ✔ accepts 15
+    ✔ accepts 16
+    ✔ accepts 17
+    ✔ accepts 18
+    ✔ accepts 19
+    ✔ accepts 20
+    ✔ accepts 21
+    ✔ accepts 22
+    ✔ accepts 23
+    ✔ accepts 24
+    ✔ accepts 25
+    ✔ accepts 26
+    ✔ accepts 27
+    ✔ accepts 28
+    ✔ accepts 29
+    ✔ accepts 30
+    ✔ rejects 1
+    ✔ rejects 0
+    ✔ rejects 00003
+    ✔ rejects dog
+    ✔ rejects 
+    ✔ rejects 361
+    ✔ rejects 90
+    ✔ rejects 6
+    ✔ rejects -11
+    ✔ rejects 32
+    ✔ rejects 123z
+
+  When matching mLComment
+    ✔ accepts (**)
+    ✔ accepts (*  *)
+    ✔ accepts (*756****)
+    ✔ accepts (*****)
+    ✔ accepts (*(*(******9*)
+    ✔ rejects 
+    ✔ rejects (*)
+    ✔ rejects (**
+    ✔ rejects dog
+    6) rejects (* before (* inner *) after *)
+    7) rejects (* extra space *) 
+
+  When matching notFileForFirstNoLookAround
+    ✔ accepts 
+    ✔ accepts files
+    ✔ accepts fors
+    ✔ accepts FOR
+    ✔ accepts thefirst
+    ✔ accepts afile
+    ✔ accepts fork
+    ✔ accepts fILE
+    ✔ accepts fifor
+    ✔ rejects file
+    ✔ rejects for
+    ✔ rejects first
+
+  When matching cOctal
+    ✔ accepts 0
+    ✔ accepts 027
+    ✔ accepts 0777
+    ✔ accepts 07766554433221100
+    ✔ accepts 000000
+    8) rejects 08
+    9) rejects 099
+    10) rejects 100
+    ✔ rejects 777
+    11) rejects 011542651234612487236
+
+  When matching restrictedFloatingPoint
+    ✔ accepts 2
+    ✔ accepts 11.5
+    ✔ accepts 9.E111
+    ✔ accepts 233E17
+    ✔ accepts 15.0E999
+    ✔ accepts 11E982
+    ✔ accepts 3290.182937482364723887E-98
+    ✔ accepts 1e3
+    ✔ accepts 25.
+    ✔ accepts 00.2E+2
+    ✔ rejects 
+    ✔ rejects dog
+    12) rejects 3.1E9012
+    13) rejects 22.3221E
+    14) rejects 2e
+
+  When matching palindrome2358
+    15) accepts ππ
+    16) accepts ©&©
+    17) accepts 0@∂@0
+    18) accepts 🔭ñabbañ🔭
+    ✔ rejects Російський
+    ✔ rejects військовий
+    ✔ rejects корабель
+    ✔ rejects A
+    ✔ rejects BBBB
+    ✔ rejects #$%%$#
+
+  When matching noNegativeIntLits
+    19) accepts 12
+    20) accepts 7 dogs
+    ✔ accepts I have 8 rats
+    ✔ accepts Got response 404
+    ✔ accepts hAx0r
+    ✔ accepts What is 2-3?
+    ✔ rejects 
+    ✔ rejects -3
+    21) rejects Shoot it was -16
+    ✔ rejects -2-2-2-2-2
+    ✔ rejects -420
+    22) rejects A -300 A
+
+  When matching repeated
+    23) accepts badbad
+    24) accepts 
+    25) accepts wootwoot
+    26) accepts bebe
+    27) accepts swooshswoosh
+    ✔ rejects aba
+    ✔ rejects zzyzz
+    28) rejects ABAB
+    29) rejects ZooZ
+    ✔ rejects 123123
+
+  When matching notFileForFirstWithLookAround
+    ✔ accepts 
+    ✔ accepts files
+    ✔ accepts fors
+    ✔ accepts FOR
+    ✔ accepts thefirst
+    ✔ accepts afile
+    ✔ accepts fork
+    ✔ accepts fILE
+    ✔ accepts fifor
+    ✔ rejects file
+    ✔ rejects for
+    ✔ rejects first
+
+
+  179 passing (64ms)
+  29 failing
+
+  1) When matching adaFloat
+       accepts 23_5:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  2) When matching adaFloat
+       accepts 1.3e2:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  3) When matching adaFloat
+       accepts 11_3.3_3_222E-199:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  4) When matching adaFloat
+       accepts 3#1.2#E33:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  5) When matching notThreeEndingInOO
+       accepts :
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  6) When matching mLComment
+       rejects (* before (* inner *) after *):
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  7) When matching mLComment
+       rejects (* extra space *) :
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  8) When matching cOctal
+       rejects 08:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  9) When matching cOctal
+       rejects 099:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  10) When matching cOctal
+       rejects 100:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  11) When matching cOctal
+       rejects 011542651234612487236:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  12) When matching restrictedFloatingPoint
+       rejects 3.1E9012:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  13) When matching restrictedFloatingPoint
+       rejects 22.3221E:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  14) When matching restrictedFloatingPoint
+       rejects 2e:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  15) When matching palindrome2358
+       accepts ππ:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  16) When matching palindrome2358
+       accepts ©&©:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  17) When matching palindrome2358
+       accepts 0@∂@0:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  18) When matching palindrome2358
+       accepts 🔭ñabbañ🔭:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  19) When matching noNegativeIntLits
+       accepts 12:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  20) When matching noNegativeIntLits
+       accepts 7 dogs:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  21) When matching noNegativeIntLits
+       rejects Shoot it was -16:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  22) When matching noNegativeIntLits
+       rejects A -300 A:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  23) When matching repeated
+       accepts badbad:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  24) When matching repeated
+       accepts :
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  25) When matching repeated
+       accepts wootwoot:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  26) When matching repeated
+       accepts bebe:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  27) When matching repeated
+       accepts swooshswoosh:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:179:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  28) When matching repeated
+       rejects ABAB:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+  29) When matching repeated
+       rejects ZooZ:
+
+      AssertionError [ERR_ASSERTION]: false == true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.<anonymous> (file:///Users/lee/Downloads/pl2/test/matching.test.js:184:24)
+      at processImmediate (internal/timers.js:464:21)
+
+
+
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |     100 |      100 |     100 |     100 |                   
+ regex_practice.js |     100 |      100 |     100 |     100 |                   
+-------------------|---------|----------|---------|---------|-------------------
